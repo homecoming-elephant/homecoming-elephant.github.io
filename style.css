@@ -25,6 +25,10 @@ html {
   background-size: 24px 24px;
 }
 
+p {
+	font-size: 25px;
+}
+
 .container {
   width: 400px;
   height: 400px;
@@ -132,26 +136,22 @@ html {
 .heart {
   background-color: #f05354;
   position: absolute;
-  left: 43%;
-  top: 24%;
   height: 51%;
   width: 31%;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  transform: rotate(45deg);
+  border-radius: 50%;
 }
 
-.heart:after {
+.smiley:after {
   content: '';
   position: absolute;
-  transform: rotate(-90deg);
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   background-color: #f05354;
-  left: -43%;
-  top: 19%;
-  width: 100%;
-  height: 100%;
+  right: 14%;
+  top: 10%;
+  width: 75%;
+  height: 75%;
+  background: url('https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg');
 }
 
 .elephant {
@@ -547,4 +547,100 @@ body {
 
 #name {
 	font-size: 50px;
+}
+
+$background: #191919;
+$red: #ed2f2f;
+$blue: #00bbff;
+
+body {
+	margin: 0;
+	padding: 0;
+	background: $background;
+}
+
+.container {
+	padding: 32px;
+}
+
+.reaction {
+	position: relative;
+	width: 3em;
+	height: 3em;
+	border-radius: 100%;
+	border: 3px solid #fff;
+	float: left;
+	margin-right: 16px;
+	cursor: pointer;
+	
+	&:hover {
+		transition: .05s;
+		
+		span {
+			color: #fff;
+		}
+	}
+	
+	&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			width: 3em;
+			height: 3em;
+			background: $background;
+			border-radius: 100%;
+			transition: .5s;
+		}
+	
+	&:last-child {
+		margin-right: 0;
+	}
+	
+	span {
+		position: absolute;
+		top: 20%;
+		left: calc(40% - 0.5px);
+		z-index: 2;
+		font-size: 24px;
+		font-weight: 700;
+		color: #fff;
+		transform: translate(-50%, -50%);
+		transform: rotate(90deg);
+		transition: .5s;
+	}
+	
+	&-red {
+		background: $red;
+		border: 3px solid $red;
+		
+		span {
+			color: $red;
+		}
+		
+		&:hover {
+			
+			
+			&:after {
+				background: $red;
+			}
+		}
+	}
+	
+	&-blue {
+		background: $blue;
+		border: 3px solid $blue;
+
+		span {
+			color: $blue;
+		}
+		
+		&:hover {
+			&:after {
+				background: $blue;
+			}
+		}
+	}
+	
 }
